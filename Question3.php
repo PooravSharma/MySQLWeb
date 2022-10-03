@@ -5,19 +5,19 @@
 	 Date: 16-08-2022
 	 Task: Assessment Task Two -->
 <head>
-<title>Question One</title>
+<title>Question Three</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
  <link rel="stylesheet" href="formating.css">
 </head>
 
 <body>
-<div class = 'container-fluid', id= "Question1">
+<div class = 'container-fluid', id= "Question3">
 
 <!-- List for the Navigaation bar Bar -->
 <?php
      include_once('navigation.php');  
-	
+ 
 $mysqli = new mysqli("localhost", "root", "MyWeb20", "assessmentTwo");
 if($mysqli === false){
     die("ERROR: Could not connect. " . $mysqli->connect_error);
@@ -34,7 +34,7 @@ if($mysqli === false){
             </thead>
 </div>
 <?php
-$sql = "SELECT * FROM questions WHERE Question = 1";
+$sql = "SELECT * FROM questions WHERE Question = 3";
 if($result = $mysqli->query($sql)){
     if($result->num_rows > 0){
         

@@ -18,7 +18,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #FF8C00;
 }
 
 li {
@@ -35,5 +35,20 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: #111;
+  background-color: #0073FF;
+}
+
+thead {
+ background-color: #333;
+  color: white 
+}
+.Table{
+	border-collapse: collapse;
+	border: 1px solid black;
+	padding: 8px;
+}
+.Tablehead{
+font-weight: bold;
+color: white;
+font-size: 50px;
 }

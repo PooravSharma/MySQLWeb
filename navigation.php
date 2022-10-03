@@ -1,3 +1,4 @@
+ <link rel="stylesheet" type="text/css" href="formating.css">
 <ul>
 <li><a href="Index.php">Home</a></li>
 <li><a href="Question1.php">Question One</a></li>
