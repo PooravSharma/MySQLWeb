@@ -10,5 +10,5 @@
 <li><a href="Question7.php">Question Seven</a></li>
 <li><a href="Question8.php">Question Eight</a></li>
 <li><a href="Question9.php">Question Nine</a></li>
-<li><a href="contact.html">Contact</a></li>
+<li><a href="contact.php">Contact</a></li>
 </ul>

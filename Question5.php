@@ -23,6 +23,9 @@ if($mysqli === false){
     die("ERROR: Could not connect. " . $mysqli->connect_error);
 }
 ?>
+<br>
+<br>
+<br>
 <div class="Table">
 <table>
 <div class ="Tablehead">

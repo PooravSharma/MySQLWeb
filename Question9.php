@@ -17,50 +17,57 @@
 <!-- List for the Navigaation bar Bar -->
 <?php
      include_once('navigation.php');  
-	
-$mysqli = new mysqli("localhost", "root", "MyWeb20", "assessmentTwo");
-if($mysqli === false){
-    die("ERROR: Could not connect. " . $mysqli->connect_error);
+
+try{
+    $pdo = new PDO("mysql:host=localhost;dbname=assessmentTwo", "root", "MyWeb20");
+    // Set the PDO error mode to exception
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e){
+    die("ERROR: Could not connect. " . $e->getMessage());
 }
+// Attempt select query execution
+try{
+    $sql = "SELECT * FROM questions WHERE Question = 9";  
+    $result = $pdo->query($sql);
+    if($result->rowCount() > 0){
 ?>
+<br>
+<br>
+<br>
 <div class="Table">
 <table>
-<div class ="Tablehead">
-            <thead>
-            <th>Question</th>
-            <th>Topic</th>
-            <th>Description</th>
-            <th>Answer</th>
-            </thead>
+<div class="Tablehead">
+    <thead>
+    <th>Question</th>
+    <th>Topic</th>
+    <th>Description</th>
+    <th>Answer</th>
+    </thead>
 </div>
 <?php
-$sql = "SELECT * FROM questions WHERE Question = 9";
-if($result = $mysqli->query($sql)){
-    if($result->num_rows > 0){
-        
-        while($row = $result->fetch_array()){
+  while($row = $result->fetch()){
 ?>
-           <tr>
-             <td> <?php echo  $row['Question'] ?></td>
-             <td> <?php echo $row['Topic']?> </td>
-             <td><?php echo $row['Description']?></td>
-             <td><?php echo  $row['Answer'] ?></td>
-            </tr>
-      
-      </table>
-</div>
-        
-<?php  
-// Close result set
-}
-  $result->free();
+ <tr>
+ <td><?php echo $row['Question'] ?></td>
+ <td><?php echo $row['Topic'] ?></td>
+ <td><?php echo $row['Description'] ?></td>
+ <td><?php echo $row['Answer'] ?></td>
+ </tr>
+ </table>
+ </div>
+<?php
+	}
+        // Free result set
+        unset($result);
     } else{
         echo "No records matching your query were found.";
     }
-} else{
-    echo "ERROR: Could not able to execute $sql. " . $mysqli->error;
+} catch(PDOException $e){
+    die("ERROR: Could not able to execute $sql. " . $e->getMessage());
 }
-$mysqli->close();
+ 
+// Close connection
+unset($pdo);
 ?>
 </body>
 </div>
